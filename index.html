@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SILBER Sponsoring – Materialanforderung 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  header {
+    background: #0d0d1a;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .mtt-logo-box {
+    display: inline-block;
+    border: 2px solid #4dc8e8;
+    padding: 0.75rem 2.5rem;
+  }
+
+  .mtt-logo-box .name {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #4dc8e8;
+    letter-spacing: 0.14em;
+  }
+
+  .mtt-logo-box .tagline {
+    font-size: 0.62rem;
+    color: #fff;
+    letter-spacing: 0.2em;
+    margin-top: 3px;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 5rem;
+  }
+
+  h1.page-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.6rem;
+  }
+
+  .page-desc {
+    font-size: 0.92rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .firm-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .firm-wrap label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+
+  .firm-wrap input {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #4dc8e8;
+    border-radius: 10px;
+    background: #fff;
+    color: #1a1a2e;
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    font-family: inherit;
+  }
+
+  .firm-wrap input:focus { outline: none; box-shadow: 0 0 0 3px rgba(77,200,232,0.2); }
+
+  .progress-bar-wrap {
+    background: #dde2e8;
+    border-radius: 99px;
+    height: 8px;
+    margin-bottom: 0.4rem;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: #4dc8e8;
+    border-radius: 99px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .progress-label {
+    font-size: 0.8rem;
+    color: #777;
+    text-align: right;
+    margin-bottom: 1.75rem;
+  }
+
+  .section-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #e8f8fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  .section-deadline {
+    font-size: 0.75rem;
+    border-radius: 99px;
+    padding: 3px 10px;
+    font-weight: 600;
+    margin-left: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .dl-sofort { background: #f8d7da; color: #842029; }
+  .dl-date   { background: #fff3cd; color: #856404; }
+  .dl-eigen  { background: #d1ecf1; color: #0c5460; }
+
+  .section-desc {
+    font-size: 0.875rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+  }
+
+  .section-desc ul {
+    margin: 0.4rem 0 0 1.2rem;
+  }
+
+  .section-desc li {
+    margin-bottom: 0.2rem;
+  }
+
+  .checks { border-top: 1px solid #f0f2f5; }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #f0f2f5;
+    cursor: pointer;
+  }
+
+  .check-item:last-child { border-bottom: none; }
+
+  .check-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid #c8d0da;
+    background: #fff;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 1px;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .check-item input[type="checkbox"]:checked {
+    background: #4dc8e8;
+    border-color: #4dc8e8;
+  }
+
+  .check-item input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px; top: 1px;
+    width: 8px; height: 12px;
+    border: 2px solid white;
+    border-top: none; border-left: none;
+    transform: rotate(40deg);
+  }
+
+  .check-label {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.55;
+    flex: 1;
+    transition: color 0.15s;
+    user-select: none;
+  }
+
+  .check-item.done .check-label {
+    color: #aaa;
+    text-decoration: line-through;
+  }
+
+  .upload-block {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f2f5;
+  }
+
+  .upload-block .upload-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 0.25rem;
+  }
+
+  .upload-block .upload-hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .upload-area {
+    border: 2px dashed #c8d0da;
+    border-radius: 10px;
+    background: #fafbfc;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+
+  .upload-area:hover, .upload-area.dragover {
+    border-color: #4dc8e8;
+    background: #f0fbfd;
+  }
+
+  .upload-area input[type="file"] {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0; cursor: pointer;
+  }
+
+  .upload-area .upload-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .upload-area .upload-text { font-size: 0.85rem; color: #555; }
+  .upload-area .upload-size { font-size: 0.75rem; color: #999; margin-top: 2px; }
+
+  .file-list {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .file-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #e8f8fd;
+    border: 1px solid #b8e8f5;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.82rem;
+    color: #1a5f6e;
+  }
+
+  .file-pill .file-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-pill .file-status { font-size: 0.75rem; color: #666; flex-shrink: 0; }
+  .file-pill .file-remove { cursor: pointer; color: #999; font-size: 1rem; flex-shrink: 0; }
+  .file-pill .file-remove:hover { color: #e24b4a; }
+
+  .file-pill.uploading .file-status { color: #4dc8e8; }
+  .file-pill.done-upload .file-status { color: #3B6D11; }
+  .file-pill.error-upload .file-status { color: #e24b4a; }
+
+  .notiz-wrap {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f2f5;
+  }
+
+  .notiz-wrap label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 5px;
+  }
+
+  .notiz-wrap input[type="text"],
+  .notiz-wrap textarea {
+    width: 100%;
+    padding: 0.55rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #dde2e8;
+    font-size: 0.875rem;
+    font-family: inherit;
+    background: #fafbfc;
+    color: #1a1a2e;
+    resize: vertical;
+    transition: border-color 0.2s;
+  }
+
+  .notiz-wrap input:focus, .notiz-wrap textarea:focus {
+    outline: none; border-color: #4dc8e8; background: #fff;
+  }
+
+  .submit-wrap {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .btn-submit {
+    background: #4dc8e8;
+    color: #0d0d1a;
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-submit:hover { background: #3ab5d4; }
+  .btn-submit:active { transform: scale(0.98); }
+  .btn-submit:disabled { background: #b0d9e8; cursor: not-allowed; }
+
+  .submit-status {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #555;
+    min-height: 1.2em;
+  }
+
+  .submit-status.ok { color: #3B6D11; font-weight: 600; }
+  .submit-status.err { color: #a32d2d; font-weight: 600; }
+
+  .save-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a2e;
+    color: #4dc8e8;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border-radius: 99px;
+    display: none;
+    white-space: nowrap;
+    z-index: 99;
+  }
+
+  .save-banner.visible { display: block; animation: fup 0.25s ease; }
+
+  @keyframes fup {
+    from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .config-banner {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.85rem;
+    color: #5d4037;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .config-banner strong { color: #bf360c; }
+
+  @media (max-width: 500px) {
+    .section-header { flex-wrap: wrap; }
+    .section-deadline { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mtt-logo-box">
+    <div class="name">MEET THE TOP</div>
+    <div class="tagline">DAS PREMIUM-TREFFEN<br>DER PHYSIO- UND GESUNDHEITSBRANCHE</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <h1 class="page-title">SILBER Sponsoring Materialanforderung 2026</h1>
+  <p class="page-desc">Damit wir die Leistungen Eures Sponsorships reibungslos und in bester Qualität für Euch umsetzen können, bitten wir Dich, uns die dafür benötigten Daten und Materialien rechtzeitig, spätestens jedoch bis zur jeweiligen Deadline, zukommen zu lassen.</p>
+
+  <div class="firm-wrap">
+    <label>Firmenname *</label>
+    <input type="text" id="firmname" placeholder="Firma" required />
+  </div>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">0 von 0 erledigt</div>
+
+  <!-- ═══ SECTION 1: Freigabe Sponsorenlogo ═══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🏷️</div>
+      <div class="section-title">Freigabe Sponsorenlogo</div>
+      <div class="section-deadline dl-sofort">Deadline: sofort</div>
+    </div>
+    <div class="section-desc">
+      Hier gelangst Du zur Sponsorenübersicht. Bitte prüfe, ob es sich bei dem hinterlegten Logo um Euer aktuellstes Firmenlogo handelt, und bestätige uns durch Abhaken der Box, dass wir dieses auch für sämtliche weitere Sponsoring-Leistungen verwenden dürfen.
+    </div>
+    <div class="checks">
+      <div class="check-item" onclick="toggleCheck('logo-freigabe')">
+        <input type="checkbox" id="logo-freigabe" />
+        <label class="check-label" for="logo-freigabe">Freigabe Firmenlogo</label>
+      </div>
+    </div>
+
+    <div class="upload-block">
+      <div class="upload-title">Upload Sponsorenlogo</div>
+      <div class="upload-hint">Sollte das in der Übersicht hinterlegte Logo <em>nicht</em> korrekt sein, lade uns hier bitte das aktuelle Firmenlogo hoch.</div>
+      <div class="upload-area" id="area-logo" ondragover="dragOver(event,'area-logo')" ondragleave="dragLeave('area-logo')" ondrop="dropFile(event,'logo-upload','area-logo')">
+        <input type="file" id="logo-upload" accept="image/*,.pdf,.eps,.ai,.svg" onchange="handleFiles(this,'logo-upload','area-logo')" />
+        <div class="upload-icon">⬆️</div>
+        <div class="upload-text">Klicken Sie, um eine Datei auszuwählen oder hierher zu ziehen</div>
+        <div class="upload-size">Größenbeschränkung: 50MB pro Datei</div>
+      </div>
+      <div class="file-list" id="files-logo-upload"></div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 2: Anzeige Teilnehmerhandbuch ═══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <div class="section-title">Anzeige im Teilnehmerhandbuch</div>
+      <div class="section-deadline dl-date">Deadline: 18.09.2026</div>
+    </div>
+    <div class="section-desc">
+      Im Rahmen deines Silber Sponsorings erhältst du eine 1/1 Seitige-Anzeige im Teilnehmerhandbuch.
+      <ul>
+        <li>Format 1/1-Seite DIN A5: 148 × 210 mm + 3 mm Beschnitt ringsherum + mit Schnittmarken</li>
+        <li>Sicherheitsabstand auf den „Innenseiten" jeweils 13 mm wegen Lochstanzung der Wire-O-Bindung. Dieser Bereich wird gelocht! Hier sollten weder Text noch Logo stehen!</li>
+        <li>Sicherheitsabstand auf allen anderen Seiten mindestens 5 mm ringsum zum Rand (Endformat)</li>
+        <li>Hier geht's zum Datenblatt</li>
+      </ul>
+    </div>
+
+    <div class="upload-block">
+      <div class="upload-title">Upload Druckdaten Anzeige Teilnehmerhandbuch</div>
+      <div class="upload-area" id="area-handbuch" ondragover="dragOver(event,'area-handbuch')" ondragleave="dragLeave('area-handbuch')" ondrop="dropFile(event,'handbuch-upload','area-handbuch')">
+        <input type="file" id="handbuch-upload" accept=".pdf,.ai,.eps,.indd,.png,.jpg,.tiff" onchange="handleFiles(this,'handbuch-upload','area-handbuch')" />
+        <div class="upload-icon">⬆️</div>
+        <div class="upload-text">Klicken Sie, um eine Datei auszuwählen oder hierher zu ziehen</div>
+        <div class="upload-size">Größenbeschränkung: 50MB pro Datei</div>
+      </div>
+      <div class="file-list" id="files-handbuch-upload"></div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 3: Wichtige Informationen ═══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">ℹ️</div>
+      <div class="section-title">Wichtige Informationen</div>
+    </div>
+
+    <!-- TV Flat Screen -->
+    <div style="margin-bottom:1.25rem;">
+      <div style="font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px;">
+        📺 TV Flat Screen
+        <span class="section-deadline dl-eigen" style="margin-left:0;">Deadline: keine, eigenverantwortlich</span>
+      </div>
+      <div class="section-desc" style="margin-bottom:0.75rem;">
+        Du hast die Möglichkeit, für 490,– € netto einen 42–55" Flat-Screen für Deinen Meetingtisch hinzuzubuchen. Im Preis enthalten sind die Nutzung für zwei Tage inklusive TV-Ständer, Verkabelung und Transport. Den Screen kannst Du völlig frei mit Deinen Inhalten bespielen.<br><br>
+        Wenn Du Interesse an dieser Option hast, melde Dich einfach beim MTT-Team (info@meet-the-top.de), damit wir den Flat-Screen für Dich aufbuchen können.
+      </div>
+      <div class="checks">
+        <div class="check-item" onclick="toggleCheck('tv-kenntnisgenommen')">
+          <input type="checkbox" id="tv-kenntnisgenommen" />
+          <label class="check-label" for="tv-kenntnisgenommen">Information zur Kenntnis genommen / Entscheidung getroffen</label>
+        </div>
+      </div>
+      <div class="notiz-wrap">
+        <label>Notiz (z. B. „gebucht" oder „nicht nötig")</label>
+        <input type="text" id="tv-notiz" placeholder="Optionale Notiz …" />
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #f0f2f5;margin-bottom:1.25rem;padding-top:1.25rem;">
+      <!-- Roll-Ups und Werbung -->
+      <div style="font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px;">
+        🎯 Roll-Ups und Werbung
+        <span class="section-deadline dl-eigen" style="margin-left:0;">Deadline: keine, eigenverantwortlich</span>
+      </div>
+      <div class="section-desc" style="margin-bottom:0.75rem;">
+        An Deinem Meetingtisch/Deiner Meetingfläche gibt es die Möglichkeit, Roll-Ups zu positionieren.<br><br>
+        Bitte beachte aber, dass Plots und Werbung so gestellt sein müssen, dass die Sicht auf den Nebenstand nicht verdeckt wird.<br><br>
+        Damit die Atmosphäre im Sponsorenbereich einheitlich bleibt, sind humanoide Roboter oder vergleichbare Technologien an den Ständen nicht erlaubt. Bitte berücksichtige dies bei der Planung Deines Messeauftritts.
+      </div>
+      <div class="checks">
+        <div class="check-item" onclick="toggleCheck('rollup-kenntnisgenommen')">
+          <input type="checkbox" id="rollup-kenntnisgenommen" />
+          <label class="check-label" for="rollup-kenntnisgenommen">Richtlinien zu Roll-Ups und Werbung zur Kenntnis genommen</label>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #f0f2f5;padding-top:1.25rem;">
+      <!-- Equipment-Anlieferung -->
+      <div style="font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px;">
+        📦 Equipment-Anlieferung
+        <span class="section-deadline dl-eigen" style="margin-left:0;">Deadline: keine, eigenverantwortlich</span>
+      </div>
+      <div class="section-desc" style="margin-bottom:0.75rem;">
+        Falls Du Geräte, Produkte oder Muster im Vorfeld für Deinen Meetingbereich, den MTT-Marktplatz oder Ähnliches direkt an das Hotel schicken möchtest, gib uns bitte kurz Bescheid. Sende dazu einfach eine E-Mail an das MTT-Team (info@meet-the-top.de) und nenne uns die Anzahl, Größe und das Gewicht Deines Equipments. Wir schicken Dir dann die passende Adresse für die Anlieferung zu.<br><br>
+        Wichtiger Hinweis: Bitte beachte, dass Du für den Rückversand Deiner Materialien selbst verantwortlich bist. Genauere Informationen zum Ablauf des Rückversands lassen wir Dir zu einem späteren Zeitpunkt noch zukommen.
+      </div>
+      <div class="checks">
+        <div class="check-item" onclick="toggleCheck('equip-kenntnisgenommen')">
+          <input type="checkbox" id="equip-kenntnisgenommen" />
+          <label class="check-label" for="equip-kenntnisgenommen">Information zur Equipment-Anlieferung zur Kenntnis genommen</label>
+        </div>
+      </div>
+      <div class="notiz-wrap">
+        <label>Notiz zum Equipment</label>
+        <textarea id="equip-notiz" rows="2" placeholder="z. B. Artikelanzahl, geplantes Versanddatum …"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="submit-wrap">
+    <button class="btn-submit" id="btnSubmit" onclick="submitAll()">Daten an MTT übermitteln</button>
+    <div class="submit-status" id="submitStatus"></div>
+  </div>
+
+</div>
+
+<div class="save-banner" id="saveBanner">✓ Zwischenstand gespeichert</div>
+
+<script>
+  // ─── KONFIGURATION ───────────────────────────────────────────────
+  const SCRIPT_URL   = 'https://script.google.com/macros/s/AKfycbx5Y32PA5DrDouuwCm0D5L2xzI6KFmmtLBsHLP9p6dccyXbswrKFDsFCkfGHXNWH1UqOg/exec';
+  const DRIVE_FOLDER = '1gPvzjYCZGreG3hv9i3HG86dkluaTG0iy';
+  // ────────────────────────────────────────────────────────────────
+
+  const STORAGE_KEY = 'mttp_silber_2026_v2';
+
+  const CHECK_IDS = [
+    'logo-freigabe',
+    'tv-kenntnisgenommen',
+    'rollup-kenntnisgenommen',
+    'equip-kenntnisgenommen'
+  ];
+
+  const TEXT_IDS = ['firmname','tv-notiz','equip-notiz'];
+
+  // Uploaded file metadata per upload-field
+  const uploadedFiles = {
+    'logo-upload': [],
+    'handbuch-upload': []
+  };
+
+  // ─── localStorage ───────────────────────────────────────────────
+  function saveLocal() {
+    const s = {};
+    CHECK_IDS.forEach(id => { s[id] = document.getElementById(id)?.checked || false; });
+    TEXT_IDS.forEach(id => { s[id] = document.getElementById(id)?.value || ''; });
+    s._uploads = {};
+    Object.keys(uploadedFiles).forEach(k => {
+      s._uploads[k] = uploadedFiles[k].map(f => ({ name: f.name, driveUrl: f.driveUrl || '', status: f.status }));
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+    flashBanner();
+  }
+
+  function loadLocal() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      CHECK_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && s[id]) { el.checked = true; el.closest('.check-item')?.classList.add('done'); }
+      });
+      TEXT_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && s[id] !== undefined) el.value = s[id];
+      });
+      if (s._uploads) {
+        Object.keys(s._uploads).forEach(k => {
+          (s._uploads[k] || []).forEach(f => {
+            uploadedFiles[k].push(f);
+            renderFilePill(k, f.name, f.status, f.driveUrl);
+          });
+        });
+      }
+      updateProgress();
+    } catch(e) { console.warn('loadLocal error', e); }
+  }
+
+  let bannerTimer;
+  function flashBanner() {
+    const b = document.getElementById('saveBanner');
+    b.classList.add('visible');
+    clearTimeout(bannerTimer);
+    bannerTimer = setTimeout(() => b.classList.remove('visible'), 2000);
+  }
+
+  // ─── Checkboxen ─────────────────────────────────────────────────
+  function toggleCheck(id) {
+    const cb = document.getElementById(id);
+    if (!cb) return;
+    cb.checked = !cb.checked;
+    cb.closest('.check-item').classList.toggle('done', cb.checked);
+    updateProgress();
+    saveLocal();
+  }
+
+  function updateProgress() {
+    const total = CHECK_IDS.length;
+    const done  = CHECK_IDS.filter(id => document.getElementById(id)?.checked).length;
+    const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = done + ' von ' + total + ' erledigt (' + pct + ' %)';
+  }
+
+  // ─── Text inputs ────────────────────────────────────────────────
+  TEXT_IDS.forEach(id => {
+    document.getElementById(id)?.addEventListener('input', saveLocal);
+  });
+
+  // ─── Drag & Drop ────────────────────────────────────────────────
+  function dragOver(e, areaId) {
+    e.preventDefault();
+    document.getElementById(areaId)?.classList.add('dragover');
+  }
+  function dragLeave(areaId) {
+    document.getElementById(areaId)?.classList.remove('dragover');
+  }
+  function dropFile(e, inputId, areaId) {
+    e.preventDefault();
+    dragLeave(areaId);
+    const files = e.dataTransfer?.files;
+    if (files?.length) processFiles(inputId, Array.from(files));
+  }
+  function handleFiles(input, inputId) {
+    if (input.files?.length) processFiles(inputId, Array.from(input.files));
+    input.value = '';
+  }
+
+  // ─── File upload to Google Drive via Apps Script ─────────────────
+  function processFiles(inputId, files) {
+    files.forEach(file => {
+      if (file.size > 50 * 1024 * 1024) {
+        alert('Datei "' + file.name + '" ist größer als 50 MB und wurde nicht hinzugefügt.');
+        return;
+      }
+      const entry = { name: file.name, status: 'uploading', driveUrl: '' };
+      uploadedFiles[inputId].push(entry);
+      const idx = uploadedFiles[inputId].length - 1;
+      renderFilePill(inputId, file.name, 'uploading', '');
+      saveLocal();
+
+      if (SCRIPT_URL === 'GOOGLE_SCRIPT_URL') {
+        // Demo mode: pretend upload succeeds after 1 s
+        setTimeout(() => {
+          uploadedFiles[inputId][idx].status = 'done';
+          uploadedFiles[inputId][idx].driveUrl = '#demo';
+          refreshFilePill(inputId, idx);
+          saveLocal();
+        }, 1000);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const base64 = e.target.result.split(',')[1];
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'uploadFile',
+            folderId: DRIVE_FOLDER,
+            fileName: file.name,
+            mimeType: file.type,
+            data: base64
+          })
+        })
+        .then(r => r.json())
+        .then(res => {
+          if (res.url) {
+            uploadedFiles[inputId][idx].status = 'done';
+            uploadedFiles[inputId][idx].driveUrl = res.url;
+          } else {
+            uploadedFiles[inputId][idx].status = 'error';
+          }
+          refreshFilePill(inputId, idx);
+          saveLocal();
+        })
+        .catch(() => {
+          uploadedFiles[inputId][idx].status = 'error';
+          refreshFilePill(inputId, idx);
+          saveLocal();
+        });
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function pillId(inputId, idx) { return 'pill-' + inputId + '-' + idx; }
+
+  function renderFilePill(inputId, name, status, driveUrl) {
+    const list = document.getElementById('files-' + inputId);
+    if (!list) return;
+    const idx = uploadedFiles[inputId].length - 1;
+    const pill = document.createElement('div');
+    pill.className = 'file-pill ' + statusClass(status);
+    pill.id = pillId(inputId, idx);
+    pill.innerHTML = pillHTML(inputId, idx, name, status, driveUrl);
+    list.appendChild(pill);
+  }
+
+  function refreshFilePill(inputId, idx) {
+    const f = uploadedFiles[inputId][idx];
+    const pill = document.getElementById(pillId(inputId, idx));
+    if (!pill) return;
+    pill.className = 'file-pill ' + statusClass(f.status);
+    pill.innerHTML = pillHTML(inputId, idx, f.name, f.status, f.driveUrl);
+  }
+
+  function statusClass(s) {
+    if (s === 'uploading') return 'uploading';
+    if (s === 'done') return 'done-upload';
+    if (s === 'error') return 'error-upload';
+    return '';
+  }
+
+  function statusLabel(s, driveUrl) {
+    if (s === 'uploading') return '⏳ Wird hochgeladen …';
+    if (s === 'done') return driveUrl && driveUrl !== '#demo'
+      ? '<a href="' + driveUrl + '" target="_blank" style="color:#3B6D11;">✓ Hochgeladen – ansehen</a>'
+      : '✓ Hochgeladen';
+    if (s === 'error') return '✗ Fehler beim Upload';
+    return s;
+  }
+
+  function pillHTML(inputId, idx, name, status, driveUrl) {
+    return '<span class="file-name">📄 ' + escHtml(name) + '</span>'
+      + '<span class="file-status">' + statusLabel(status, driveUrl) + '</span>'
+      + '<span class="file-remove" onclick="removeFile(\'' + inputId + '\',' + idx + ')">✕</span>';
+  }
+
+  function removeFile(inputId, idx) {
+    uploadedFiles[inputId].splice(idx, 1);
+    const list = document.getElementById('files-' + inputId);
+    if (list) list.innerHTML = '';
+    uploadedFiles[inputId].forEach((f, i) => renderFilePill(inputId, f.name, f.status, f.driveUrl));
+    saveLocal();
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ─── Submit to Google Sheets ─────────────────────────────────────
+  function submitAll() {
+    const firma = document.getElementById('firmname').value.trim();
+    if (!firma) {
+      alert('Bitte zuerst den Firmennamen eintragen.');
+      document.getElementById('firmname').focus();
+      return;
+    }
+
+    const btn = document.getElementById('btnSubmit');
+    const status = document.getElementById('submitStatus');
+    btn.disabled = true;
+    status.className = 'submit-status';
+    status.textContent = 'Wird übermittelt …';
+
+    const payload = {
+      action: 'saveChecklist',
+      timestamp: new Date().toISOString(),
+      firma,
+      checks: {},
+      texts: {},
+      uploads: {}
+    };
+
+    CHECK_IDS.forEach(id => { payload.checks[id] = document.getElementById(id)?.checked || false; });
+    TEXT_IDS.forEach(id => { payload.texts[id] = document.getElementById(id)?.value || ''; });
+    Object.keys(uploadedFiles).forEach(k => {
+      payload.uploads[k] = uploadedFiles[k].map(f => f.driveUrl || f.name).join(', ');
+    });
+
+    if (SCRIPT_URL === 'GOOGLE_SCRIPT_URL') {
+      setTimeout(() => {
+        btn.disabled = false;
+        status.className = 'submit-status ok';
+        status.textContent = '✓ Demo-Modus: Daten würden jetzt an Google Sheets übermittelt.';
+      }, 800);
+      return;
+    }
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(res => {
+      btn.disabled = false;
+      if (res.success) {
+        status.className = 'submit-status ok';
+        status.textContent = '✓ Vielen Dank! Deine Daten wurden erfolgreich übermittelt.';
+      } else {
+        throw new Error(res.error || 'Unbekannter Fehler');
+      }
+    })
+    .catch(err => {
+      btn.disabled = false;
+      status.className = 'submit-status err';
+      status.textContent = '✗ Fehler: ' + err.message + ' – bitte erneut versuchen.';
+    });
+  }
+
+  // ─── Init ────────────────────────────────────────────────────────
+  loadLocal();
+</script>
+</body>
+</html>
